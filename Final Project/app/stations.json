@@ -1,0 +1,598 @@
+[
+  {
+    "id": 1,
+    "name": "Tesco Bedford Extra (Riverfield Drive)",
+    "brand": "Tesco",
+    "address": "Riverfield Drive, Bedford, MK41 0SE",
+    "latitude": 52.142021,
+    "longitude": -0.424809,
+    "petrol_price": 134.9,
+    "diesel_price": 140.9,
+    "last_updated": "2025-03-24"
+  },
+  {
+    "id": 2,
+    "name": "Sainsbury's Fairfield (Clapham Rd)",
+    "brand": "Sainsbury's",
+    "address": "90 Clapham Road, Bedford, MK41 7PJ",
+    "latitude": 52.14653,
+    "longitude": -0.48515,
+    "petrol_price": 136.9,
+    "diesel_price": 142.9,
+    "last_updated": "2025-03-23"
+  },
+  {
+    "id": 3,
+    "name": "JET Putnoe (Queens Drive)",
+    "brand": "JET",
+    "address": "132 Queens Drive, Bedford, MK41 9JF",
+    "latitude": 52.148339,
+    "longitude": -0.43865,
+    "petrol_price": 133.9,
+    "diesel_price": 141.9,
+    "last_updated": "2025-03-23"
+  },
+  {
+    "id": 4,
+    "name": "BP Newnham Avenue",
+    "brand": "BP",
+    "address": "Newnham Avenue, Bedford, MK41 9QG",
+    "latitude": 52.13867,
+    "longitude": -0.44361,
+    "petrol_price": 138.9,
+    "diesel_price": 144.9,
+    "last_updated": "2025-03-24"
+  },
+  {
+    "id": 5,
+    "name": "BP Kempston (High Street)",
+    "brand": "BP",
+    "address": "High Street, Kempston, Bedford, MK42 7BT",
+    "latitude": 52.120,
+    "longitude": -0.496,
+    "petrol_price": 138.9,
+    "diesel_price": 144.9,
+    "last_updated": "2025-03-23"
+  },
+  {
+    "id": 6,
+    "name": "Tesco Bedford South (Cardington Rd)",
+    "brand": "Tesco",
+    "address": "Cardington Road, Bedford, MK42 0BG",
+    "latitude": 52.129741,
+    "longitude": -0.451209,
+    "petrol_price": 134.9,
+    "diesel_price": 140.9,
+    "last_updated": "2025-03-24"
+  },
+  {
+    "id": 7,
+    "name": "Esso London Road Bedford",
+    "brand": "Esso",
+    "address": "1 London Road, Bedford, MK42 0NX",
+    "latitude": 52.126448,
+    "longitude": -0.45964,
+    "petrol_price": 137.7,
+    "diesel_price": 143.7,
+    "last_updated": "2025-03-24"
+  },
+  {
+    "id": 8,
+    "name": "Sainsbury's Kempston (Saxon Centre)",
+    "brand": "Sainsbury's",
+    "address": "Bedford Road, Kempston, MK42 8AY",
+    "latitude": 52.11751,
+    "longitude": -0.49463,
+    "petrol_price": 135.9,
+    "diesel_price": 141.9,
+    "last_updated": "2025-03-24"
+  },
+  {
+    "id": 9,
+    "name": "Shell HKS Kempston (Woburn Rd)",
+    "brand": "Shell",
+    "address": "Woburn Road, Bedford, MK42 7QA",
+    "latitude": 52.1138,
+    "longitude": -0.4965,
+    "petrol_price": 138.9,
+    "diesel_price": 148.9,
+    "last_updated": "2025-03-23"
+  },
+  {
+    "id": 10,
+    "name": "Shell Elstow Road Bedford",
+    "brand": "Shell",
+    "address": "Elstow Road, Bedford, MK42 9NU",
+    "latitude": 52.122,
+    "longitude": -0.466,
+    "petrol_price": 139.9,
+    "diesel_price": 146.9,
+    "last_updated": "2025-03-24"
+  },
+  {
+    "id": 11,
+    "name": "Morrisons Bedford (Ampthill Rd)",
+    "brand": "Morrisons",
+    "address": "Ampthill Road, Bedford, MK42 9JP",
+    "latitude": 52.119,
+    "longitude": -0.470,
+    "petrol_price": 135.7,
+    "diesel_price": 142.7,
+    "last_updated": "2025-03-24"
+  },
+  {
+    "id": 12,
+    "name": "Essar Bedford (University Way)",
+    "brand": "Essar",
+    "address": "University Way, Bedford, MK43 0AW",
+    "latitude": 52.106,
+    "longitude": -0.589,
+    "petrol_price": 146.9,
+    "diesel_price": 154.9,
+    "last_updated": "2025-03-20"
+  },
+  {
+    "id": 13,
+    "name": "Gulf Cranfield (RGR Garage)",
+    "brand": "Gulf",
+    "address": "High Street, Cranfield, MK43 0DG",
+    "latitude": 52.073,
+    "longitude": -0.608,
+    "petrol_price": 147.9,
+    "diesel_price": null,
+    "last_updated": "2025-02-13"
+  },
+  {
+    "id": 14,
+    "name": "Shell Marston Moretaine",
+    "brand": "Shell",
+    "address": "Beancroft Road, Marston Moretaine, MK43 0PZ",
+    "latitude": 52.068,
+    "longitude": -0.548,
+    "petrol_price": 130.9,
+    "diesel_price": 138.9,
+    "last_updated": "2025-03-24"
+  },
+  {
+    "id": 15,
+    "name": "BP Bedford Bypass (Elstow Interchange)",
+    "brand": "BP",
+    "address": "A6/A421 Bypass, Bedford, MK42 9BF",
+    "latitude": 52.100,
+    "longitude": -0.465,
+    "petrol_price": 139.9,
+    "diesel_price": 145.9,
+    "last_updated": "2025-03-24"
+  },
+  {
+    "id": 16,
+    "name": "BP Stagsden Road (A422)",
+    "brand": "BP",
+    "address": "Stagsden Road, Kempston, MK43 8PT",
+    "latitude": 52.113,
+    "longitude": -0.573,
+    "petrol_price": 139.9,
+    "diesel_price": 146.9,
+    "last_updated": "2025-03-24"
+  },
+  {
+    "id": 17,
+    "name": "Murco Wootton (Fields Road)",
+    "brand": "Murco",
+    "address": "Fields Road, Wootton, MK43 9JJ",
+    "latitude": 52.098,
+    "longitude": -0.523,
+    "petrol_price": 128.9,
+    "diesel_price": 135.9,
+    "last_updated": "2025-03-24"
+  },
+  {
+    "id": 18,
+    "name": "Pace Roxton (High Street)",
+    "brand": "Pace",
+    "address": "High Street, Roxton, MK44 1DR",
+    "latitude": 52.188,
+    "longitude": -0.317,
+    "petrol_price": 130.9,
+    "diesel_price": 138.9,
+    "last_updated": "2025-03-24"
+  },
+  {
+    "id": 19,
+    "name": "Shell Milton Ernest (Rushden Rd)",
+    "brand": "Shell",
+    "address": "Rushden Road, Milton Ernest, MK44 1HJ",
+    "latitude": 52.194,
+    "longitude": -0.520,
+    "petrol_price": 132.9,
+    "diesel_price": 140.9,
+    "last_updated": "2025-03-24"
+  },
+  {
+    "id": 20,
+    "name": "Welcome Break Black Cat (A1 South)",
+    "brand": "Welcome Break/Shell",
+    "address": "Great North Rd Southbound, MK44 3AA",
+    "latitude": 52.179,
+    "longitude": -0.268,
+    "petrol_price": 144.9,
+    "diesel_price": 153.9,
+    "last_updated": "2025-03-24"
+  },
+  {
+    "id": 21,
+    "name": "Shell Great North Rd (Chawston)",
+    "brand": "Shell",
+    "address": "Great North Road, Chawston, MK44 3BE",
+    "latitude": 52.198,
+    "longitude": -0.268,
+    "petrol_price": 143.9,
+    "diesel_price": 149.9,
+    "last_updated": "2025-03-24"
+  },
+  {
+    "id": 22,
+    "name": "Asda Luton (Wigmore)",
+    "brand": "Asda",
+    "address": "Wigmore Hall Centre, Eaton Green Rd, Luton, LU2 9TA",
+    "latitude": 51.888275,
+    "longitude": -0.37154,
+    "petrol_price": 131.7,
+    "diesel_price": 138.7,
+    "last_updated": "2025-03-24"
+  },
+  {
+    "id": 23,
+    "name": "Sainsbury's Dunstable (Luton Rd)",
+    "brand": "Sainsbury's",
+    "address": "Luton Road, Dunstable, LU5 4RF",
+    "latitude": 51.88774,
+    "longitude": -0.50976,
+    "petrol_price": 128.9,
+    "diesel_price": 135.9,
+    "last_updated": "2025-03-24"
+  },
+  {
+    "id": 24,
+    "name": "BP Dunstable (Chalk Hill)",
+    "brand": "BP",
+    "address": "Watling St (A5), Dunstable, LU6 1RS",
+    "latitude": 51.897895,
+    "longitude": -0.537736,
+    "petrol_price": 127.7,
+    "diesel_price": 135.7,
+    "last_updated": "2025-03-24"
+  },
+  {
+    "id": 25,
+    "name": "Jet Henlow (Bedford Rd)",
+    "brand": "JET",
+    "address": "50 Bedford Road, Henlow, SG16 6DZ",
+    "latitude": 52.00669,
+    "longitude": -0.304102,
+    "petrol_price": 135.9,
+    "diesel_price": 139.9,
+    "last_updated": "2025-03-24"
+  },
+  {
+    "id": 26,
+    "name": "Applegreen Flitwick",
+    "brand": "Applegreen",
+    "address": "Westoning Rd (A5120), Flitwick, MK45, Bedfordshire",
+    "latitude": 52.005,
+    "longitude": -0.495,
+    "petrol_price": 135.8,
+    "diesel_price": 144.8,
+    "last_updated": "2025-02-26"
+  },
+  {
+    "id": 27,
+    "name": "Tesco Flitwick",
+    "brand": "Tesco",
+    "address": "Coniston Road, Flitwick, MK45 1LX",
+    "latitude": 52.002871,
+    "longitude": -0.498279,
+    "petrol_price": 135.9,
+    "diesel_price": 139.9,
+    "last_updated": "2025-03-20"
+  },
+  {
+    "id": 28,
+    "name": "BP Adams Corner Aylesbury",
+    "brand": "BP",
+    "address": "Oakfield Road, Aylesbury, HP20 1JJ",
+    "latitude": 51.815793,
+    "longitude": -0.790409,
+    "petrol_price": 132.9,
+    "diesel_price": 142.9,
+    "last_updated": "2025-03-24"
+  },
+  {
+    "id": 29,
+    "name": "Esso MFG Aylesbury (Camborne Ave)",
+    "brand": "Esso",
+    "address": "Camborne Avenue, Aylesbury, HP21 7UD",
+    "latitude": 51.805718,
+    "longitude": -0.785622,
+    "petrol_price": 132.9,
+    "diesel_price": 142.9,
+    "last_updated": "2025-03-24"
+  },
+  {
+    "id": 30,
+    "name": "Applegreen Aylesbury (Bicester Rd)",
+    "brand": "Applegreen",
+    "address": "Bicester Road, Aylesbury, HP19 3BB",
+    "latitude": 51.823365,
+    "longitude": -0.825005,
+    "petrol_price": 135.8,
+    "diesel_price": 144.8,
+    "last_updated": "2025-02-26"
+  },
+  {
+    "id": 31,
+    "name": "Tesco Aylesbury (Broadfields)",
+    "brand": "Tesco",
+    "address": "Broadfields Retail Park, Bicester Rd, Aylesbury, HP19 8BU",
+    "latitude": 51.821281,
+    "longitude": -0.836849,
+    "petrol_price": 130.9,
+    "diesel_price": 140.9,
+    "last_updated": "2025-03-24"
+  },
+  {
+    "id": 32,
+    "name": "Tesco Aylesbury (Tring Rd)",
+    "brand": "Tesco",
+    "address": "239 Tring Road, Aylesbury, HP20 1PQ",
+    "latitude": 51.816361,
+    "longitude": -0.800279,
+    "petrol_price": 130.9,
+    "diesel_price": 140.9,
+    "last_updated": "2025-03-24"
+  },
+  {
+    "id": 33,
+    "name": "BP Portway (Milton Keynes)",
+    "brand": "BP",
+    "address": "Portway, Conniburrow, Milton Keynes, MK14 7BF",
+    "latitude": 52.04794,
+    "longitude": -0.75599,
+    "petrol_price": 137.9,
+    "diesel_price": 145.9,
+    "last_updated": "2025-03-24"
+  },
+  {
+    "id": 34,
+    "name": "Esso MFG Viking (Bletchley)",
+    "brand": "Esso",
+    "address": "26 Aylesbury Street, Bletchley, Milton Keynes, MK2 2BA",
+    "latitude": 51.995997,
+    "longitude": -0.717323,
+    "petrol_price": 133.9,
+    "diesel_price": 139.9,
+    "last_updated": "2025-03-24"
+  },
+  {
+    "id": 35,
+    "name": "Esso Watford (St Albans Rd)",
+    "brand": "Esso",
+    "address": "303 St Albans Road, Watford, WD24 4AE",
+    "latitude": 51.66811,
+    "longitude": -0.39706,
+    "petrol_price": 132.9,
+    "diesel_price": 137.9,
+    "last_updated": "2025-03-24"
+  },
+  {
+    "id": 36,
+    "name": "Shell Tring (Brook Street)",
+    "brand": "Shell",
+    "address": "Brook Street, Tring, HP23 5ED",
+    "latitude": 51.79547,
+    "longitude": -0.6592,
+    "petrol_price": 134.9,
+    "diesel_price": 144.9,
+    "last_updated": "2025-03-24"
+  },
+  {
+    "id": 37,
+    "name": "Esso Letchworth Gate",
+    "brand": "Esso",
+    "address": "Letchworth Gate, Letchworth, SG6 2AZ",
+    "latitude": 51.96994,
+    "longitude": -0.21404,
+    "petrol_price": 139.9,
+    "diesel_price": 144.9,
+    "last_updated": "2025-03-24"
+  },
+  {
+    "id": 38,
+    "name": "Esso Ware (Widbury Hill)",
+    "brand": "Esso",
+    "address": "Widbury Hill, Ware, SG12 7AQ",
+    "latitude": 51.80993,
+    "longitude": -0.02358,
+    "petrol_price": 143.9,
+    "diesel_price": 151.9,
+    "last_updated": "2025-03-24"
+  },
+  {
+    "id": 39,
+    "name": "Asda Wellingborough",
+    "brand": "Asda",
+    "address": "1-3 Rossetti Close, Wellingborough, NN8 3FQ",
+    "latitude": 52.299148,
+    "longitude": -0.731932,
+    "petrol_price": 131.7,
+    "diesel_price": 138.7,
+    "last_updated": "2025-03-24"
+  },
+  {
+    "id": 40,
+    "name": "BP Northampton (Abington Ave)",
+    "brand": "BP",
+    "address": "159 Abington Avenue, Northampton, NN1 4QB",
+    "latitude": 52.24921,
+    "longitude": -0.87331,
+    "petrol_price": 138.9,
+    "diesel_price": 144.9,
+    "last_updated": "2025-03-24"
+  },
+  {
+    "id": 41,
+    "name": "Esso Rothwell (Kettering Rd)",
+    "brand": "Esso",
+    "address": "Kettering Road, Rothwell, NN14 1SS",
+    "latitude": 52.41456,
+    "longitude": -0.790315,
+    "petrol_price": 141.7,
+    "diesel_price": 145.7,
+    "last_updated": "2025-03-24"
+  },
+  {
+    "id": 42,
+    "name": "Esso M1 J16 (Northampton)",
+    "brand": "Esso",
+    "address": "M1 J16 / A45 Roundabout, Northampton, NN7 3NF",
+    "latitude": 52.230053,
+    "longitude": -1.01873,
+    "petrol_price": 137.7,
+    "diesel_price": 145.7,
+    "last_updated": "2025-03-24"
+  },
+  {
+    "id": 43,
+    "name": "Shell Daventry (Admirals Way)",
+    "brand": "Shell",
+    "address": "Admirals Way, Daventry, NN11 4QB",
+    "latitude": 52.251667,
+    "longitude": -1.150975,
+    "petrol_price": 138.9,
+    "diesel_price": 147.9,
+    "last_updated": "2025-03-24"
+  },
+
+
+  {
+    "id": 44,
+    "name": "Ionity Baldock (Extra Services, A1(M) J10)",
+    "plug_types": [ "CCS" ],
+    "max_speed_kW": 350,
+    "cost_per_kWh": "£0.74",
+    "status": "Available",
+    "coordinates": {
+      "latitude": 52.013751,
+      "longitude": -0.202994
+    }
+  },
+  {
+    "id": 45,
+    "name": "GRIDSERVE Baldock (Extra Services, A1(M) J10)",
+    "plug_types": [ "CCS", "CHAdeMO" ],
+    "max_speed_kW": 60,
+    "cost_per_kWh": "£0.79",
+    "status": "In Use",
+    "coordinates": {
+      "latitude": 52.013751,
+      "longitude": -0.202994
+    }
+  },
+  {
+    "id": 46,
+    "name": "GRIDSERVE Stevenage Electric Forecourt",
+    "plug_types": [ "CCS", "CHAdeMO", "Type 2" ],
+    "max_speed_kW": 360,
+    "cost_per_kWh": "£0.79",
+    "status": "Available",
+    "coordinates": {
+      "latitude": 51.886303,
+      "longitude": -0.207242
+    }
+  },
+  {
+    "id": 47,
+    "name": "InstaVolt Royston (A505 McDonald's)",
+    "plug_types": [ "CCS2", "CHAdeMO" ],
+    "max_speed_kW": 120,
+    "cost_per_kWh": "£0.85",
+    "status": "Available",
+    "coordinates": {
+      "latitude": 52.045678,
+      "longitude": -0.054503
+    }
+  },
+  {
+    "id": 48,
+    "name": "GRIDSERVE Toddington (Moto M1 Northbound)",
+    "plug_types": [ "CCS", "CHAdeMO", "Type 2" ],
+    "max_speed_kW": 360,
+    "cost_per_kWh": "£0.79",
+    "status": "Available",
+    "coordinates": {
+      "latitude": 51.947096,
+      "longitude": -0.503233
+    }
+  },
+  {
+    "id": 49,
+    "name": "Osprey Brewpoint Bedford",
+    "plug_types": [ "CCS", "CHAdeMO" ],
+    "max_speed_kW": 300,
+    "cost_per_kWh": "£0.79",
+    "status": "Available",
+    "coordinates": {
+      "latitude": 52.147022,
+      "longitude": -0.487690
+    }
+  },
+  {
+    "id": 50,
+    "name": "InstaVolt Northampton (Grange Farm A45)",
+    "plug_types": [ "CCS2", "CHAdeMO" ],
+    "max_speed_kW": 62,
+    "cost_per_kWh": "£0.85",
+    "status": "Available",
+    "coordinates": {
+      "latitude": 52.193725,
+      "longitude": -0.891853
+    }
+  },
+  {
+    "id": 51,
+    "name": "Osprey Kettering (Venture Park)",
+    "plug_types": [ "CCS", "CHAdeMO" ],
+    "max_speed_kW": 60,
+    "cost_per_kWh": "£0.79",
+    "status": "Available",
+    "coordinates": {
+      "latitude": 52.377262,
+      "longitude": -0.718484
+    }
+  },
+  {
+    "id": 52,
+    "name": "BP Pulse Hub – Milton Keynes Coachway",
+    "plug_types": [ "CCS", "CHAdeMO", "Type 2" ],
+    "max_speed_kW": 50,
+    "cost_per_kWh": "£0.79",
+    "status": "In Use",
+    "coordinates": {
+      "latitude": 52.055761,
+      "longitude": -0.699816
+    }
+  },
+  {
+    "id": 53,
+    "name": "Ionity Beaconsfield (M40 Services)",
+    "plug_types": [ "CCS" ],
+    "max_speed_kW": 350,
+    "cost_per_kWh": "£0.74",
+    "status": "Available",
+    "coordinates": {
+      "latitude": 51.587981,
+      "longitude": -0.629119
+    }
+  }
+]
+
