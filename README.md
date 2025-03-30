@@ -1,50 +1,132 @@
-# Welcome to your Expo app 👋
+# 🛠️ FuelFinder App
 
-This is an [Expo](https://expo.dev) project created with [`create-expo-app`](https://www.npmjs.com/package/create-expo-app).
+**FuelFinder** is a powerful mobile application built with React Native + Expo that helps users find the cheapest nearby fuel stations and EV chargers, calculate journey costs, track fuel receipts, and analyze monthly fuel spending.
 
-## Get started
+---
 
-1. Install dependencies
+## 🚀 Features
 
-   ```bash
-   npm install
-   ```
+### 🗺️ Interactive Fuel Map
+- View nearby **petrol stations and EV chargers**
+- Tap on markers to see prices, address, opening hours, and get directions via:
+  - Google Maps
+  - Apple Maps (iOS)
+  - Waze
 
-2. Start the app
+### 💸 Journey Cost Calculator
+- Select a car from a sample list with **MPG or miles/kWh**
+- Choose **driving type** (Urban / Mixed / Motorway) to improve accuracy
+- Input **start & destination** (auto-calculates route distance via Google Maps API)
+- Calculates total journey cost with a detailed breakdown
+- Remembers recently used cars for quick selection
 
-   ```bash
-    npx expo start
-   ```
+### 🧾 Fuel / EV Receipt Tracker
+- Add fuel or charging receipts
+- Select station name from searchable list
+- Enter fuel type, price per litre/kWh, and total cost
+- Calculates litres or kWh used
+- Editable receipt entries with delete support
 
-In the output, you'll find options to open the app in a
+### 📊 Monthly Spending Logs
+- Filter logs by **month and fuel type**
+- View **bar chart** of monthly spending
+- Export data to **CSV or PDF**
+- Clear logs by month or fuel type
 
-- [development build](https://docs.expo.dev/develop/development-builds/introduction/)
-- [Android emulator](https://docs.expo.dev/workflow/android-studio-emulator/)
-- [iOS simulator](https://docs.expo.dev/workflow/ios-simulator/)
-- [Expo Go](https://expo.dev/go), a limited sandbox for trying out app development with Expo
+---
 
-You can start developing by editing the files inside the **app** directory. This project uses [file-based routing](https://docs.expo.dev/router/introduction).
+## 📂 Project Structure
 
-## Get a fresh project
-
-When you're ready, run:
-
-```bash
-npm run reset-project
+```
+app/
+├── cheapest.js         # Find cheapest fuel by type and distance
+├── journey.js          # Journey cost calculator
+├── logs.js             # Spending log screen with charts and filters
+├── map.js              # Interactive map screen with BottomSheet & modal
+├── receipts.js         # Fuel & EV receipt tracking
+├── index.js            # Home screen with animated logo & navigation
+├── carData.json        # Sample cars with efficiency data
+├── stations.json       # Fuel & EV station data with prices & opening hours
+└── config.js           # Contains API keys (e.g., Google Maps)
 ```
 
-This command will move the starter code to the **app-example** directory and create a blank **app** directory where you can start developing.
+---
 
-## Learn more
+## ⚙️ Setup Instructions
 
-To learn more about developing your project with Expo, look at the following resources:
+### Prerequisites
+- Node.js, Expo CLI
+- Google Maps API Key (with Geocoding & Directions API enabled)
 
-- [Expo documentation](https://docs.expo.dev/): Learn fundamentals, or go into advanced topics with our [guides](https://docs.expo.dev/guides).
-- [Learn Expo tutorial](https://docs.expo.dev/tutorial/introduction/): Follow a step-by-step tutorial where you'll create a project that runs on Android, iOS, and the web.
+### 1. Clone the repository
 
-## Join the community
+```bash
+git clone https://github.com/YOUR_USERNAME/FuelFinderApp.git
+cd FuelFinderApp
+```
 
-Join our community of developers creating universal apps.
+### 2. Install dependencies
 
-- [Expo on GitHub](https://github.com/expo/expo): View our open source platform and contribute.
-- [Discord community](https://chat.expo.dev): Chat with Expo users and ask questions.
+```bash
+npm install
+```
+
+### 3. Add your API key
+
+Create a file: `app/config.js`
+
+```js
+export const GOOGLE_API_KEY = 'YOUR_GOOGLE_MAPS_API_KEY';
+```
+
+### 4. Start the app
+
+```bash
+npx expo start
+```
+
+---
+
+## 🖌️ Theming
+
+The app uses a stylish and accessible color palette:
+
+- **Purple:** `#785589`
+- **Black:** `#1A1A1A`
+- **Cream:** `#DBC4A7`
+- **Rose Red:** `#D60D13`
+
+All screens follow a consistent theme with cream backgrounds and purple accents.
+
+---
+
+## 📱 Built With
+
+- [React Native](https://reactnative.dev/)
+- [Expo](https://expo.dev/)
+- [React Native Maps](https://github.com/react-native-maps/react-native-maps)
+- [React Native Paper](https://callstack.github.io/react-native-paper/)
+- [AsyncStorage](https://react-native-async-storage.github.io/async-storage/)
+- [Google Maps API](https://developers.google.com/maps/documentation)
+
+---
+
+## 💡 Future Enhancements
+
+- User authentication
+- Real-time fuel price updates via API
+- Live EV charger availability
+- Car profile management
+- Dark mode and localization support
+
+---
+
+## 📸 Screenshots
+
+*Include images of key screens here once you're ready.*
+
+---
+
+## 📜 License
+
+This project is licensed under the MIT License.
