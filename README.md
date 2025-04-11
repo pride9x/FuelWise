@@ -39,7 +39,7 @@ Clone the repository:
 bash
 Copy
 Edit
-git clone https://github.com/your-username/FuelWise.git
+git clone https://github.com/your-username/FuelFinder-Tracker.git
 cd FuelWise
 Install project dependencies:
 
