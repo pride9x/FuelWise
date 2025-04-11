@@ -3,7 +3,7 @@ import {
     View, Text, StyleSheet, FlatList, Alert, KeyboardAvoidingView,
     Platform, TouchableOpacity, TouchableWithoutFeedback, Keyboard
 } from 'react-native';
-import { TextInput, Button, Provider as PaperProvider, DefaultTheme } from 'react-native-paper';
+import { TextInput, Button, Provider as PaperProvider, DefaultTheme, ActivityIndicator } from 'react-native-paper';
 import DateTimePicker from '@react-native-community/datetimepicker';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import stations from '../app/stations.json';
@@ -13,7 +13,7 @@ export default function Receipts() {
     const router = useRouter();
     const [stationQuery, setStationQuery] = useState('');
     const [filteredStations, setFilteredStations] = useState([]);
-    const [showSuggestions, setShowSuggestions] = useState(false);
+    const [showDropdown, setShowDropdown] = useState(false);
     const [fuelType, setFuelType] = useState('Petrol');
     const [pricePerUnit, setPricePerUnit] = useState('');
     const [totalCost, setTotalCost] = useState('');
@@ -21,72 +21,131 @@ export default function Receipts() {
     const [showDatePicker, setShowDatePicker] = useState(false);
     const [receipts, setReceipts] = useState([]);
     const [editingId, setEditingId] = useState(null);
+    const [isLoading, setIsLoading] = useState(true);
 
     useEffect(() => {
+        const loadReceipts = async () => {
+            try {
+                const data = await AsyncStorage.getItem('fuel_receipts');
+                if (data) {
+                    setReceipts(JSON.parse(data));
+                }
+            } catch (error) {
+                Alert.alert('Error', 'Failed to load receipts');
+                console.error(error);
+            } finally {
+                setIsLoading(false);
+            }
+        };
         loadReceipts();
     }, []);
 
-    const loadReceipts = async () => {
-        const data = await AsyncStorage.getItem('fuel_receipts');
-        if (data) {
-            setReceipts(JSON.parse(data));
-        }
-    };
+    useEffect(() => {
+        // Initialize with all stations when component mounts
+        const allStations = stations.map((s) => s.name.replace(/[‘’]/g, "'"));
+        setFilteredStations(allStations);
+    }, []);
 
     const handleStationSearch = (text) => {
         setStationQuery(text);
-        setShowSuggestions(true);
         const filtered = stations
             .map((s) => s.name.replace(/[‘’]/g, "'"))
             .filter((name) => name.toLowerCase().includes(text.toLowerCase()));
         setFilteredStations(filtered);
     };
 
+    const toggleDropdown = () => {
+        setShowDropdown(!showDropdown);
+        if (!showDropdown) {
+            // When opening dropdown, show all stations if search is empty
+            if (!stationQuery) {
+                const allStations = stations.map((s) => s.name.replace(/[‘’]/g, "'"));
+                setFilteredStations(allStations);
+            }
+        }
+    };
+
     const selectStation = (name) => {
         setStationQuery(name);
-        setShowSuggestions(false);
+        setShowDropdown(false);
+        Keyboard.dismiss();
     };
 
     const saveReceipt = async () => {
-        if (!stationQuery || !pricePerUnit || !totalCost || !date) {
+        if (!stationQuery?.trim() || !pricePerUnit || !totalCost || !date) {
             Alert.alert('Missing Fields', 'Please fill in all fields including date.');
             return;
         }
 
-        const litres = parseFloat(totalCost) / parseFloat(pricePerUnit);
-        const cleanStation = stationQuery.replace(/[‘’]/g, "'");
+        try {
+            const price = parseFloat(pricePerUnit);
+            const total = parseFloat(totalCost);
 
-        const newReceipt = {
-            id: editingId ?? Date.now(),
-            station: cleanStation,
-            fuelType,
-            pricePerUnit: parseFloat(pricePerUnit),
-            totalCost: parseFloat(totalCost),
-            litres: parseFloat(litres.toFixed(2)),
-            date: date.toISOString(),
-        };
+            if (isNaN(price) || isNaN(total) || price <= 0 || total <= 0) {
+                throw new Error('Please enter valid prices');
+            }
 
-        const updated = editingId
-            ? receipts.map(r => r.id === editingId ? newReceipt : r)
-            : [newReceipt, ...receipts];
+            const litres = total / price;
+            const cleanStation = stationQuery.replace(/[‘’]/g, "'");
 
-        setReceipts(updated);
-        await AsyncStorage.setItem('fuel_receipts', JSON.stringify(updated));
+            const newReceipt = {
+                id: editingId ?? Date.now(),
+                station: cleanStation,
+                fuelType,
+                pricePerUnit: price,
+                totalCost: total,
+                litres: parseFloat(litres.toFixed(2)),
+                date: date.toISOString(),
+            };
 
-        // Reset all fields
-        setStationQuery('');
-        setFuelType('Petrol');
-        setPricePerUnit('');
-        setTotalCost('');
-        setEditingId(null);
-        setDate(null);
-        setShowSuggestions(false);
+            const updated = editingId
+                ? receipts.map(r => r.id === editingId ? newReceipt : r)
+                : [newReceipt, ...receipts];
 
-        // Show success message after save
-        setTimeout(() => {
-            Alert.alert('Success', editingId ? 'Entry updated successfully!' : 'Entry saved successfully!');
-        }, 100);
+            setReceipts(updated);
+            await AsyncStorage.setItem('fuel_receipts', JSON.stringify(updated));
+
+            // Reset form
+            setStationQuery('');
+            setPricePerUnit('');
+            setTotalCost('');
+            setEditingId(null);
+            setDate(null);
+            setShowDropdown(false);
+
+            Alert.alert('Success', editingId ? 'Entry updated!' : 'Entry saved!');
+        } catch (error) {
+            Alert.alert('Error', error.message || 'Failed to save receipt');
+            console.error(error);
+        }
     };
+
+    const deleteReceipt = async (id) => {
+        Alert.alert(
+            'Delete Receipt',
+            'Are you sure you want to delete this receipt?',
+            [
+                { text: 'Cancel', style: 'cancel' },
+                {
+                    text: 'Delete',
+                    style: 'destructive',
+                    onPress: async () => {
+                        const filtered = receipts.filter(r => r.id !== id);
+                        setReceipts(filtered);
+                        await AsyncStorage.setItem('fuel_receipts', JSON.stringify(filtered));
+                    }
+                }
+            ]
+        );
+    };
+
+    if (isLoading) {
+        return (
+            <View style={styles.loaderContainer}>
+                <ActivityIndicator size="large" color="#785589" />
+            </View>
+        );
+    }
 
     return (
         <PaperProvider theme={DefaultTheme}>
@@ -100,31 +159,43 @@ export default function Receipts() {
                     </View>
 
                     <View style={styles.body}>
-                        <View style={{ marginBottom: 12 }}>
-                            <TextInput
-                                label="Station Name"
-                                value={stationQuery}
-                                onChangeText={handleStationSearch}
-                                mode="outlined"
-                                placeholder="Start typing..."
-                                style={styles.input}
-                            />
-                            {showSuggestions && filteredStations.length > 0 && (
-                                <FlatList
-                                    data={filteredStations}
-                                    keyExtractor={(item, index) => index.toString()}
-                                    renderItem={({ item }) => (
-                                        <TouchableOpacity
-                                            style={styles.suggestionItem}
-                                            onPress={() => selectStation(item)}
-                                        >
-                                            <Text>{item}</Text>
-                                        </TouchableOpacity>
-                                    )}
-                                    style={styles.suggestionsList}
-                                    keyboardShouldPersistTaps="handled"
+                        <View style={styles.inputGroup}>
+                            <Text style={styles.label}>Station Name</Text>
+                            <View style={styles.dropdownContainer}>
+                                <TextInput
+                                    value={stationQuery}
+                                    onChangeText={handleStationSearch}
+                                    onFocus={() => setShowDropdown(true)}
+                                    mode="outlined"
+                                    placeholder="Search or select station..."
+                                    style={styles.input}
+                                    right={
+                                        <TextInput.Icon
+                                            icon={showDropdown ? "chevron-up" : "chevron-down"}
+                                            onPress={toggleDropdown}
+                                        />
+                                    }
                                 />
-                            )}
+                                {showDropdown && (
+                                    <View style={styles.dropdown}>
+                                        <FlatList
+                                            data={filteredStations}
+                                            keyExtractor={(item, index) => index.toString()}
+                                            renderItem={({ item }) => (
+                                                <TouchableOpacity
+                                                    style={styles.dropdownItem}
+                                                    onPress={() => selectStation(item)}
+                                                >
+                                                    <Text>{item}</Text>
+                                                </TouchableOpacity>
+                                            )}
+                                            style={styles.dropdownList}
+                                            keyboardShouldPersistTaps="handled"
+                                            nestedScrollEnabled={true}
+                                        />
+                                    </View>
+                                )}
+                            </View>
                         </View>
 
                         <Text style={styles.label}>Fuel Type:</Text>
@@ -135,41 +206,56 @@ export default function Receipts() {
                                     mode={fuelType === type ? 'contained' : 'outlined'}
                                     onPress={() => setFuelType(type)}
                                     style={styles.fuelButton}
+                                    labelStyle={{ color: fuelType === type ? '#fff' : '#785589' }}
                                 >
                                     {type}
                                 </Button>
                             ))}
                         </View>
 
-                        <TextInput
-                            label={fuelType === 'EV' ? 'Price per kWh (\u00A3)' : 'Price per litre (\u00A3)'}
-                            value={pricePerUnit}
-                            onChangeText={setPricePerUnit}
-                            keyboardType="decimal-pad"
-                            mode="outlined"
-                            style={styles.input}
-                        />
-
-                        <TextInput
-                            label={"Total Cost (\u00A3)"}
-                            value={totalCost}
-                            onChangeText={setTotalCost}
-                            keyboardType="decimal-pad"
-                            mode="outlined"
-                            style={styles.input}
-                        />
-
-                        <TouchableOpacity onPress={() => setShowDatePicker(true)} activeOpacity={0.9}>
+                        <View style={styles.inputGroup}>
+                            <Text style={styles.label}>
+                                {fuelType === 'EV' ? 'Price per kWh (£)' : 'Price per litre (£)'}
+                            </Text>
                             <TextInput
-                                placeholder={fuelType === 'EV' ? 'Select date of charging' : 'Select date of fueling'}
-                                value={date ? date.toDateString() : ''}
+                                value={pricePerUnit}
+                                onChangeText={setPricePerUnit}
+                                keyboardType="decimal-pad"
                                 mode="outlined"
-                                editable={false}
-                                pointerEvents="none"
                                 style={styles.input}
-                                placeholderTextColor="#999"
+                                placeholder="0.00"
                             />
-                        </TouchableOpacity>
+                        </View>
+
+                        <View style={styles.inputGroup}>
+                            <Text style={styles.label}>Total Cost (£)</Text>
+                            <TextInput
+                                value={totalCost}
+                                onChangeText={setTotalCost}
+                                keyboardType="decimal-pad"
+                                mode="outlined"
+                                style={styles.input}
+                                placeholder="0.00"
+                            />
+                        </View>
+
+                        <View style={styles.inputGroup}>
+                            <Text style={styles.label}>Date</Text>
+                            <TouchableOpacity
+                                onPress={() => setShowDatePicker(true)}
+                                activeOpacity={0.7}
+                            >
+                                <TextInput
+                                    placeholder={fuelType === 'EV' ? 'Select charging date' : 'Select fueling date'}
+                                    value={date ? date.toLocaleDateString() : ''}
+                                    mode="outlined"
+                                    editable={false}
+                                    pointerEvents="none"
+                                    style={styles.input}
+                                    right={<TextInput.Icon icon="calendar" />}
+                                />
+                            </TouchableOpacity>
+                        </View>
 
                         {showDatePicker && (
                             <DateTimePicker
@@ -183,11 +269,21 @@ export default function Receipts() {
                             />
                         )}
 
-                        <Button mode="contained" onPress={saveReceipt} style={styles.saveButton}>
+                        <Button
+                            mode="contained"
+                            onPress={saveReceipt}
+                            style={styles.saveButton}
+                            labelStyle={styles.buttonText}
+                        >
                             {editingId ? 'Update Entry' : 'Save Entry'}
                         </Button>
 
-                        <Button mode="outlined" onPress={() => router.push('/logs')} style={styles.viewLogsButton}>
+                        <Button
+                            mode="outlined"
+                            onPress={() => router.push('/logs')}
+                            style={styles.viewLogsButton}
+                            labelStyle={{ color: '#785589' }}
+                        >
                             View Spending Logs
                         </Button>
                     </View>
@@ -198,7 +294,16 @@ export default function Receipts() {
 }
 
 const styles = StyleSheet.create({
-    container: { flex: 1 },
+    loaderContainer: {
+        flex: 1,
+        justifyContent: 'center',
+        alignItems: 'center',
+        backgroundColor: '#DBC4A7',
+    },
+    container: {
+        flex: 1,
+        backgroundColor: '#DBC4A7',
+    },
     header: {
         paddingTop: 50,
         paddingBottom: 20,
@@ -215,47 +320,65 @@ const styles = StyleSheet.create({
     body: {
         flex: 1,
         padding: 20,
-        backgroundColor: '#DBC4A7',
     },
-    input: {
-        marginBottom: 12,
-        backgroundColor: 'white',
+    inputGroup: {
+        marginBottom: 16,
+        position: 'relative',
     },
     label: {
-        marginBottom: 5,
-        fontWeight: 'bold',
+        marginBottom: 8,
+        fontWeight: '600',
         color: '#1A1A1A',
+        fontSize: 14,
+    },
+    input: {
+        backgroundColor: '#fff',
     },
     fuelRow: {
         flexDirection: 'row',
-        justifyContent: 'space-evenly',
-        marginBottom: 15,
+        justifyContent: 'space-between',
+        marginBottom: 16,
     },
     fuelButton: {
         flex: 1,
         marginHorizontal: 4,
+        borderColor: '#785589',
     },
     saveButton: {
-        marginTop: 10,
-        marginBottom: 10,
+        marginTop: 8,
+        marginBottom: 12,
         backgroundColor: '#785589',
     },
     viewLogsButton: {
         borderColor: '#785589',
     },
-    suggestionsList: {
+    dropdownContainer: {
+        position: 'relative',
+        zIndex: 1,
+    },
+    dropdown: {
+        position: 'absolute',
+        top: 60,
+        left: 0,
+        right: 0,
         backgroundColor: '#fff',
         borderWidth: 1,
         borderColor: '#ccc',
-        maxHeight: 120,
-        marginTop: -8,
-        marginBottom: 8,
-        borderRadius: 6,
+        borderRadius: 4,
+        maxHeight: 200,
+        elevation: 3,
         zIndex: 100,
     },
-    suggestionItem: {
-        padding: 10,
+    dropdownList: {
+        flex: 1,
+    },
+    dropdownItem: {
+        padding: 12,
         borderBottomWidth: 1,
         borderBottomColor: '#eee',
+    },
+    buttonText: {
+        color: '#fff',
+        fontWeight: '600',
     },
 });

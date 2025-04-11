@@ -26,7 +26,7 @@ export default function HomeScreen() {
                     duration={1400}
                     style={styles.title}
                 >
-                    FuelFinder
+                    FuelWise
                 </Animatable.Text>
 
                 <Animatable.Text
@@ -44,9 +44,14 @@ export default function HomeScreen() {
                     <TouchableOpacity style={styles.button} onPress={() => router.push('/receipts')}>
                         <Text style={styles.buttonText}>Track Fuel / Charging</Text>
                     </TouchableOpacity>
+                    <TouchableOpacity style={styles.button} onPress={() => router.push('/journey')}>
+                        <Text style={styles.buttonText}>Journey Calculator</Text>
+                    </TouchableOpacity>
+
+
                 </Animatable.View>
 
-                <Text style={styles.footer}>Powered by real-time data • Updated March 2025</Text>
+                <Text style={styles.footer}>developed by Andrei Trifan</Text>
             </View>
         </LinearGradient>
     );
@@ -74,6 +79,7 @@ const styles = StyleSheet.create({
         shadowOpacity: 0.15,
         shadowRadius: 8,
         elevation: 8,
+        opacity: 0.9, // Adjust opacity to blend with the background
     },
 
 

@@ -1,0 +1,73 @@
+[
+  {
+    "make": "Vauxhall",
+    "model": "Corsa Design 16V",
+    "year": 2010,
+    "fuelType": "Petrol",
+    "mpg": 53
+  },
+  {
+    "make": "Audi",
+    "model": "A4 TDI Ultra SE",
+    "year": 2016,
+    "fuelType": "Diesel",
+    "mpg": 70
+  },
+  {
+    "make": "Tesla",
+    "model": "Model 3 Standard Range Plus",
+    "year": 2023,
+    "fuelType": "Electric",
+    "milesPerKWh": 4.5
+  },
+  {
+    "make": "Nissan",
+    "model": "Leaf 40kWh",
+    "year": 2021,
+    "fuelType": "Electric",
+    "milesPerKWh": 3
+  },
+  {
+    "make": "Ford",
+    "model": "Fiesta 1.0 EcoBoost",
+    "year": 2019,
+    "fuelType": "Petrol",
+    "mpg": 46.3
+  },
+  {
+    "make": "Hyundai",
+    "model": "Ioniq Electric",
+    "year": 2020,
+    "fuelType": "Electric",
+    "mpg": 62.8
+  },
+  {
+    "make": "Volkswagen",
+    "model": "Golf 2.0 TDI",
+    "year": 2018,
+    "fuelType": "Diesel",
+    "mpg": 58.9
+
+  },
+  {
+    "make": "Toyota",
+    "model": "Prius Plug-in Hybrid",
+    "year": 2022,
+    "fuelType": "Hybrid",
+    "mpg": 64.2
+  },
+  {
+    "make": "BMW",
+    "model": "330e Plug-in Hybrid",
+    "year": 2023,
+    "fuelType": "Hybrid",
+    "mpg": 35.3
+  },
+  {
+    "make": "Peugeot",
+    "model": "208 1.5 BlueHDi",
+    "year": 2022,
+    "fuelType": "Diesel",
+    "mpg": 44.3
+  }
+]
