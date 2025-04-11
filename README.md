@@ -93,4 +93,4 @@ Author
 Andrei-Eduard Trifan
 BSc Computer Science – Final Year Project
 University of Bedfordshire, 2025
-Supervisor: [Supervisor Name]
+Supervisor: Dr Shabnam Kadir
