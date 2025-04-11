@@ -39,7 +39,7 @@ Clone the repository:
 bash
 Copy
 Edit
-git clone https://github.com/your-username/FuelFinder-Tracker.git
+git clone https://github.com/pride9x/FuelFinder-Tracker.git
 cd FuelWise
 Install project dependencies:
 
@@ -74,24 +74,6 @@ Scan the QR code displayed in the terminal or browser.
 
 The app will launch directly on your phone.
 
-Project Structure
-plaintext
-Copy
-Edit
-FuelWise/
-├── app/
-│   ├── index.js           # Home screen
-│   ├── journey.js         # Journey cost calculator
-│   ├── map.js             # Interactive map with fuel stations
-│   ├── receipts.js        # Fuel/EV receipt entry form
-│   ├── logs.js            # Spending logs and visualisation
-│   ├── cheapest.js        # Cheapest fuel finder
-│   ├── carData.json       # Sample car database
-│   ├── stations.json      # Sample station data
-│   └── config.js          # (Optional) API config file
-├── assets/                # Icons, logos, fonts
-├── package.json
-├── README.md
 Future Improvements
 The app has significant potential to evolve into a full-featured personal fuel management system. Planned and suggested improvements include:
 
